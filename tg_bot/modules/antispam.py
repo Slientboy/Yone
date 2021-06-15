@@ -156,8 +156,8 @@ def gban(update: Update, context: CallbackContext):
 
     else:
         keyboard = [[
-            InlineKeyboardButton("Remove warn",
-                                 callback_data="rm_warn({})".format(user.id))
+            InlineKeyboardButton("appeal chat",
+                                 url = "https//t.me/eagleunionelizasupport")
         ]]
     if reason:
         if chat.type == chat.SUPERGROUP and chat.username:
