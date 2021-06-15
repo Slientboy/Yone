@@ -146,7 +146,7 @@ def gban(update: Update, context: CallbackContext):
 
     log_message = (
         f"#GBANNED\n"
-        f"<b>Originated from:</b> <code>{chat_origin}</code>\n"
+        f"<b>Approve by {mention_html(OWNER_ID, user.first_name)}\n""
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>Banned User:</b> {mention_html(user_chat.id, user_chat.first_name)}\n"
         f"<b>Banned User ID:</b> <code>{user_chat.id}</code>\n"
@@ -487,16 +487,6 @@ def __migrate__(old_chat_id, new_chat_id):
 def __chat_settings__(chat_id, user_id):
     return f"This chat is enforcing *gbans*: `{sql.does_chat_gban(chat_id)}`."
 
-
-__help__ = """
-*Admin only:*
- - /antispam <on/off/yes/no>: Check and/or change anti-spam settings.
-
-Gbans, also known as global bans, are used by the bot owners to ban spammers across all groups. This helps protect \
-you and your groups by removing spam flooders as quickly as possible. They can be disabled for your group by calling \
-/antispam off.
-
-"""
 
 GBAN_HANDLER = CommandHandler("gban", gban)
 UNGBAN_HANDLER = CommandHandler("ungban", ungban)
