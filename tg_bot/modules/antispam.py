@@ -151,7 +151,14 @@ def gban(update: Update, context: CallbackContext):
         f"<b>Banned User:</b> {mention_html(user_chat.id, user_chat.first_name)}\n"
         f"<b>Banned User ID:</b> <code>{user_chat.id}</code>\n"
         f"<b>Event Stamp:</b> <code>{current_time}</code>")
+  )
+        )
 
+    else:
+        keyboard = [[
+            InlineKeyboardButton("Remove warn",
+                                 callback_data="rm_warn({})".format(user.id))
+        ]]
     if reason:
         if chat.type == chat.SUPERGROUP and chat.username:
             log_message += f"\n<b>Reason:</b> <a href=\"https://telegram.me/{chat.username}/{message.message_id}\">{reason}</a>"
